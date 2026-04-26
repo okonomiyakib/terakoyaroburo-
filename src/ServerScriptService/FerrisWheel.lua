@@ -11,12 +11,12 @@ local RunService = game:GetService("RunService")
 local campfire    = workspace:FindFirstChild("Campfire")
 local campfirePos = campfire and campfire.Position or Vector3.new(0, 0, 0)
 
-local OFFSET       = Vector3.new(85, 0, -70)  -- 焚き火からの相対位置（十分遠い）
-local WHEEL_RADIUS = 18     -- 車輪半径（スタッド）
-local HUB_HEIGHT   = 22     -- 地面から車輪中心までの高さ
+local OFFSET       = Vector3.new(200, 0, -120)  -- 焚き火から約230スタッド先・左寄り
+local WHEEL_RADIUS = 15     -- 車輪半径（遠距離に合わせてやや縮小）
+local HUB_HEIGHT   = 18     -- 地面から車輪中心までの高さ（接地感を出す）
 local RIM_COUNT    = 16     -- リムのセグメント数
 local SPOKE_COUNT  = 8      -- スポーク本数
-local ROT_SPEED    = math.rad(2.5)  -- 回転速度: 約 2.5°/秒 = 144秒で1周
+local ROT_SPEED    = math.rad(0.8)  -- 回転速度: 約 0.8°/秒 = 450秒で1周（気づくか気づかないかレベル）
 
 -- 色（全体的に抑えめ、背景に溶け込む）
 local C_RIM     = Color3.fromRGB(88,  92, 100)   -- リム: 暗い鉄青色
