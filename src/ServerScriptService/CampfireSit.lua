@@ -11,12 +11,16 @@ local prompt   = campfire:WaitForChild("ProximityPrompt")
 -- 現在座っているプレイヤーを記録
 local sittingPlayers = {}
 
--- 座席の位置（焚き火を中心に4方向）
+-- 座席の位置（焚き火を中心に、ゆるい弧状・5席）
+-- 完全な円ではなく C 字型に配置。
+-- 距離を 6〜7.5 スタッドに広げ、圧迫感を減らす。
+-- 隣の席と正面で向き合わないよう、各席の角度を少しずつずらしている。
 local SEAT_CFRAMES = {
-    CFrame.new(-4, 0, 0),
-    CFrame.new( 4, 0, 0),
-    CFrame.new( 0, 0, -4),
-    CFrame.new( 0, 0,  4),
+    CFrame.new(-6,   0,  2.5),  -- ①: 左・やや手前
+    CFrame.new(-5,   0, -4.5),  -- ②: 左・斜め奥
+    CFrame.new( 0,   0, -7.5),  -- ③: 正面奥（最も遠い）
+    CFrame.new( 5,   0, -5),    -- ④: 右・斜め奥
+    CFrame.new( 6.5, 0,  1.5),  -- ⑤: 右・やや手前
 }
 
 -- 空いている座席を返す（簡易: 今はランダムに割り当て）

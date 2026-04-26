@@ -9,10 +9,13 @@ local campfire  = workspace:FindFirstChild("Campfire")
 local centerPos = campfire and campfire.Position or Vector3.new(0, 0, 0)
 
 -- ── 各畳の配置位置（焚き火からの相対座標）────────────────
+-- メインの輪（半径 6〜7.5 スタッド）の外に配置。
+-- 「孤立」ではなく「そっと離れられる場所」として機能させる。
+-- 焚き火は見える距離を維持しつつ、輪には属さない位置。
 local POSITIONS = {
-    centerPos + Vector3.new( 6, 0,  0),   -- 畳①: 焚き火の真横
-    centerPos + Vector3.new(-5, 0, 13),   -- 畳②: 斜め遠め
-    centerPos + Vector3.new( 2, 0, -22),  -- 畳③: さらに離れた位置
+    centerPos + Vector3.new(-12, 0,  3),  -- 畳①: 左遠め（輪から自然に外れた逃げ場）
+    centerPos + Vector3.new( 10, 0,  7),  -- 畳②: 右遠め（看板のさらに奥）
+    centerPos + Vector3.new(  2, 0, -20), -- 畳③: 正面の奥（最も静かな一人席）
 }
 
 -- ── 共通設定（全畳で同じ挙動）────────────────────────────
